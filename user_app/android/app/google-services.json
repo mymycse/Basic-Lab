@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398332767854",
+    "project_id": "bslab-75e89",
+    "storage_bucket": "bslab-75e89.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398332767854:android:a3ad63ec082bd32000807f",
+        "android_client_info": {
+          "package_name": "com.example.user_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWL-3aFVi1fTsIlixsaZMxwqVPybuN5Xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
