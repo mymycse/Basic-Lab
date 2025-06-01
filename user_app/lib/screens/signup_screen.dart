@@ -196,7 +196,12 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('회원가입')),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: const Text('회원가입', style: TextStyle(color: Colors.black)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
@@ -226,11 +231,19 @@ class _SignupScreenState extends State<SignupScreen> {
                         children: [
                           ElevatedButton(
                             onPressed: details.onStepContinue,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.teal,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                            ),
                             child: const Text('확인'),
                           ),
                           const SizedBox(width: 8),
                           TextButton(
                             onPressed: details.onStepCancel,
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.black87,
+                            ),
                             child: const Text('취소'),
                           ),
                         ],
@@ -245,12 +258,25 @@ class _SignupScreenState extends State<SignupScreen> {
                       children: [
                         TextField(
                           controller: _id,
-                          decoration: const InputDecoration(labelText: '아이디', isDense: true),
+                          decoration: const InputDecoration(
+                            labelText: '아이디',
+                            isDense: true,
+                            labelStyle: TextStyle(color: Colors.black87),
+                            hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                          style: const TextStyle(color: Colors.black),
                         ),
                         const SizedBox(height: 8),
                         TextField(
                           controller: _pw,
-                          decoration: const InputDecoration(labelText: '비밀번호', isDense: true),
+                          decoration: const InputDecoration(
+                            labelText: '비밀번호',
+                            isDense: true,
+                            labelStyle: TextStyle(color: Colors.black87),
+                            hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                          style: const TextStyle(color: Colors.black),
+
                           obscureText: true,
                         ),
                       ],
@@ -266,8 +292,13 @@ class _SignupScreenState extends State<SignupScreen> {
                           controller: _name,
                           keyboardType: TextInputType.name,
                           textCapitalization: TextCapitalization.words,
-                          decoration: const InputDecoration(labelText: '이름', isDense: true),
-                          style: const TextStyle(fontSize: 16, color: Colors.black),
+                          decoration: const InputDecoration(
+                            labelText: '이름',
+                            isDense: true,
+                            labelStyle: TextStyle(color: Colors.black87),
+                            hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                          style: const TextStyle(color: Colors.black),
                         ),
                         const SizedBox(height: 8),
                         _buildRrnInput(),
@@ -282,18 +313,40 @@ class _SignupScreenState extends State<SignupScreen> {
                     content: Column(
                       children: [
                         CheckboxListTile(
-                          title: const Text('[필수] 개인정보 처리방침 동의'),
+                          title: const Text(
+                            '[필수] 개인정보 처리방침 동의',
+                            style: TextStyle(color: Colors.black87),
+                          ),
                           value: _agreePrivacy,
+                          tileColor: Colors.transparent,
                           onChanged: (val) => setState(() => _agreePrivacy = val!),
                           dense: true,
                           contentPadding: EdgeInsets.zero,
+                          activeColor: Colors.teal,
+                          fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+                            if (states.contains(MaterialState.selected)) {
+                              return Colors.teal;
+                            }
+                            return Colors.transparent;
+                          }),
                         ),
                         CheckboxListTile(
-                          title: const Text('[선택] 푸시 알림 수신 동의'),
+                          title: const Text(
+                            '[선택] 푸시 알림 수신 동의',
+                            style: TextStyle(color: Colors.black87),
+                          ),
                           value: _agreePush,
+                          tileColor: Colors.transparent,
                           onChanged: (val) => setState(() => _agreePush = val!),
                           dense: true,
                           contentPadding: EdgeInsets.zero,
+                          activeColor: Colors.teal,
+                          fillColor: MaterialStateProperty.resolveWith<Color>((states) {
+                            if (states.contains(MaterialState.selected)) {
+                              return Colors.teal;
+                            }
+                            return Colors.transparent;
+                          }),
                         ),
                       ],
                     ),

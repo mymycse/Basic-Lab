@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
         title: const Align(
           alignment: Alignment.center,
           child: Text(
-            '말벗',
+            '늘벗',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
@@ -47,20 +47,11 @@ class HomeScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => RecommendationDetailScreen(data: recommendation),
-                      ),
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(16),
+                child: AbsorbPointer(
                   child: Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Color(0xFFE2E5E9),
+                      color: const Color(0xFFE2E5E9),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(

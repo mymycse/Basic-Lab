@@ -16,7 +16,7 @@ class TalkScreen extends StatefulWidget {
 class _TalkScreenState extends State<TalkScreen> {
   final FlutterTts _tts = FlutterTts();
   final stt.SpeechToText _speech = stt.SpeechToText();
-  final GeminiQuizService _gemini = GeminiQuizService('YOUR_GEMINI_API_KEY');
+  final GeminiQuizService _gemini = GeminiQuizService('AIzaSyBdNr19RUY83Ip9rf3Q-ApIpawj52igtHE');
   late final AssistantAgent _agent;
   late final String _uid;
 
@@ -90,26 +90,26 @@ class _TalkScreenState extends State<TalkScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = _listening ? Colors.green[600] : Colors.green[100];
+    final backgroundColor = _listening ? Color(0xAA1ea698) : Color(0xFFcfecec);
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
         title: const Text('대화하기', style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.green[700],
+        backgroundColor: Color(0xCC1ea698),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // 마이크 버튼
             Container(
               width: screenWidth * 0.7,
               height: screenWidth * 0.7,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: _listening ? Colors.green : Colors.green[300],
+                color: _listening ? Color(0xFF1ea698) : Color(0xFF81d8d0),
               ),
               child: Icon(
                 Icons.mic,
@@ -118,11 +118,10 @@ class _TalkScreenState extends State<TalkScreen> {
               ),
             ),
             const SizedBox(height: 40),
-            // 대화 중단 or 시작 버튼
             ElevatedButton(
               onPressed: _listening ? _stopListening : _startConversation,
               style: ElevatedButton.styleFrom(
-                backgroundColor: _listening ? Colors.red : Colors.green[700],
+                backgroundColor: _listening ? Colors.red : Color(0xFF1ea698),
                 padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
               ),
               child: Text(

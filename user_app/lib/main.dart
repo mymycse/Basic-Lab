@@ -26,12 +26,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '말벗',
+      title: '늘벗',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'GmarketSans',
+        scaffoldBackgroundColor: Colors.white,
+        primaryColor: Colors.teal,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.teal,
+          secondary: Colors.teal,
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.teal),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.teal, width: 2),
+          ),
+          labelStyle: TextStyle(color: Colors.black87),
+          hintStyle: TextStyle(color: Colors.grey),
+        ),
       ),
-      home: const HomeScreen(),
+      home: const LoginScreen(),
       routes: {
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),

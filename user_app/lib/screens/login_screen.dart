@@ -42,37 +42,70 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('로그인')),
+      backgroundColor: const Color(0xFFF6F7F9),
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/img/logo.png', height: 150),
+
+            const SizedBox(height: 30),
+
             TextField(
               controller: _id,
-              decoration: const InputDecoration(labelText: '아이디', isDense: true),
+              decoration: const InputDecoration(
+                labelText: '아이디',
+                prefixIcon: Icon(Icons.person),
+                border: UnderlineInputBorder(),
+              ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 16),
             TextField(
               controller: _pw,
-              decoration: const InputDecoration(labelText: '비밀번호', isDense: true),
               obscureText: true,
+              decoration: const InputDecoration(
+                labelText: '비밀번호',
+                prefixIcon: Icon(Icons.lock),
+                border: UnderlineInputBorder(),
+              ),
             ),
-            const SizedBox(height: 12),
-            ElevatedButton(
+            const SizedBox(height: 24),
+
+            OutlinedButton(
               onPressed: _handleAuth,
-              child: const Text('로그인'),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.teal,
+                side: const BorderSide(color: Colors.teal),
+                minimumSize: const Size.fromHeight(48),
+              ),
+              child: const Text('로그인', style: TextStyle(fontSize: 16)),
             ),
-            const SizedBox(height: 10),
-            TextButton(
+            const SizedBox(height: 24),
+
+            const Text('계정 새로 생성하기', style: TextStyle(fontSize: 14, color: Colors.black)),
+
+            const SizedBox(height: 8),
+
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) => const SignupScreen()),
                 );
               },
-              child: const Text('회원가입'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              ),
+              child: const Text('회원가입', style: TextStyle(fontSize: 14)),
             ),
-            const SizedBox(height: 8),
+
+            const SizedBox(height: 16),
             Text(_errorMessage, style: const TextStyle(color: Colors.red)),
           ],
         ),

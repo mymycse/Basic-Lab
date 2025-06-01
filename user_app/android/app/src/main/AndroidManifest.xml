@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
-        android:label="user_app"
+        android:label="늘벗"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
